@@ -1,0 +1,812 @@
+round(xp,2)
+abs(round(xp,1))
+vector(data ="0")
+source("Dropbox/Reinaldo/R/LASTFM loved events.R")
+toto
+Slection
+Selection
+Test
+Selection
+Selections
+Selection[seq(2,nrow(Selection)),c(2,3)]
+Selection[seq(2,nrow(Selection)),c(2)]
+Selections <- Selection[seq(2,nrow(Selection)),c(2)]
+toto <- unique(Selections)
+toto
+unique(Selection[seq(2,nrow(Selection)),c(1)])
+toto
+artists <- unique(Selections)
+artists.longueur <- xmlSize(artists)
+artists.longueur
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Paris&limit=1000&api_key=35c710f49c77939574619a7de41f7267")#
+r <- xmlRoot(doc)#
+events <- r[[1]]#
+events.longueur <- xmlSize(loved)
+events
+cancelled <- events(events[[1]][["cancelled"]])
+cancelled <- xmlValue(events[[1]][["cancelled"]])
+cancelled
+country <- xmlValue(events[[1]][["venue"]][["location"]][["country"]])
+country
+artists[[1]]
+xmlValue(events[[1]][["artists"]][["artist"]])
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	if (cancelled == 0)#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				if (artist == event.artist)#
+				{#
+					Test <- matrix(data ="0", ncol=3)#
+					Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+					Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+					Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+					Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+					Selection <- rbind(Selection,Test)#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]#
+show(Selections)
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	if (cancelled == 0)#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				if (artist == event.artist)#
+				{#
+					Test <- matrix(data ="0", ncol=4)#
+					Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+					Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+					Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+					Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+					Selection <- rbind(Selection,Test)#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]#
+show(Selections)
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	if (cancelled == "0")#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				if (artist == event.artist)#
+				{#
+					Test <- matrix(data ="0", ncol=4)#
+					Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+					Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+					Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+					Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+					Selection <- rbind(Selection,Test)#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]#
+show(Selections)
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	if (cancelled != "1")#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				if (artist == event.artist)#
+				{#
+					Test <- matrix(data ="0", ncol=4)#
+					Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+					Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+					Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+					Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+					Selection <- rbind(Selection,Test)#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]#
+show(Selections)
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	#if (cancelled != "1")#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				if (artist == event.artist)#
+				{#
+					Test <- matrix(data ="0", ncol=4)#
+					Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+					Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+					Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+					Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+					Selection <- rbind(Selection,Test)#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]#
+show(Selections)
+events.longueur <- xmlSize(events)#
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	#if (cancelled != "1")#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				if (artist == event.artist)#
+				{#
+					Test <- matrix(data ="0", ncol=4)#
+					Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+					Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+					Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+					Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+					Selection <- rbind(Selection,Test)#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]
+Selections
+source("Dropbox/Reinaldo/R/LASTFM loved events.R")
+Selections
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	#if (cancelled != "1")#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				for (p in 1:as.integer(userevents.longueur))#
+					{#
+						userevent.id <- xmlValue(userevents[[p]][["id"]])#
+						if (userevent.id == xmlValue(events[[m]][["id"]]))#
+						{#
+						}#
+						else#
+						{				#
+							if (artist == event.artist)#
+							{#
+								Test <- matrix(data ="0", ncol=4)#
+							Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+							Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+							Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+							Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+							Selection <- rbind(Selection,Test)#
+						}#
+					}#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]
+Selections
+Selection <- matrix(data ="0", ncol=4)#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	#if (cancelled != "1")#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			event.artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			for (n in 1:as.integer(artists.longueur))#
+			{#
+				artist <- artists[[n]]#
+				if (artist == event.artist)#
+				{#
+					for (p in 1:as.integer(userevents.longueur))#
+					{#
+						userevent.id <- xmlValue(userevents[[p]][["id"]])#
+						if (userevent.id == xmlValue(events[[m]][["id"]]))#
+						{#
+						}#
+						else#
+						{#
+							Test <- matrix(data ="0", ncol=4)#
+							Test [[1]][[1]] <- xmlValue(events[[m]][["id"]])#
+							Test [[2]][[1]] <- xmlValue(events[[m]][["title"]])#
+							Test [[3]][[1]] <- xmlValue(events[[m]][["venue"]][["name"]])#
+							Test [[4]][[1]] <- xmlValue(events[[m]][["startDate"]])#
+							Selection <- rbind(Selection,Test)#
+						}#
+					}#
+				}#
+			}#
+		}#
+	}#
+}#
+#
+Selections <- Selection[seq(2,nrow(Selection)),]
+Selections
+unique(Selections)
+userevents
+source("Dropbox/Reinaldo/R/LASTFM loved events.R")
+source("Dropbox/Reinaldo/R/LASTFM loved.R")
+tracks <- Selection[seq(2,nrow(Selection)),]
+tracks
+MatSimil <- matrix(data=0, nr=individus.longueur, nc=individus.longueur)#
+m <- 2
+individus.longueur <- nrow(tracks)#
+#
+#création de la matrice de similarité#
+MatSimil <- matrix(data=0, nr=individus.longueur, nc=individus.longueur)#
+m <- 2
+source("Dropbox/Reinaldo/R/LASTFM CaTh.R")
+1<-m
+m<-1
+individus.longueur <- nrow(tracks)#
+#
+#création de la matrice de similarité#
+MatSimil <- matrix(data=0, nr=individus.longueur, nc=individus.longueur)#
+m <- 1
+source("Dropbox/Reinaldo/R/LASTFM CaTh.R")
+m
+MatSimil
+m<-m+1
+source("Dropbox/Reinaldo/R/LASTFM CaTh.R")
+MatSimil[12,]
+MatSimil[10,]
+tracks
+track
+m<-11
+source("Dropbox/Reinaldo/R/LASTFM CaTh.R")
+track
+title
+url.track
+track.id
+url.similar
+similar
+n
+title
+NOM
+nn
+n
+url.track
+source("Dropbox/Reinaldo/R/LASTFM CaTh.R")
+m<-1
+for (m in 2:as.integer(individus.longueur-1))#
+{#
+	#récupérer la table de titles similaires au title m#
+		if (tracks[m,1] == "")#
+	{#
+		url.track <- paste("http://ws.audioscrobbler.com/2.0/?method=track.getinfo&track=", title, "&artist=", artist, "&autocorrect=1&api_key=35c710f49c77939574619a7de41f7267", sep ="")#
+		track <- xmlInternalTreeParse(file = url.track)#
+		r <- xmlRoot(track)#
+		track <- r[[1]]#
+		tracks[m,1] <- xmlValue(track[["mbid"]])#
+	}#
+}
+tracks
+tracks[m,1]
+m
+for (m in 1:as.integer(individus.longueur-1))#
+{#
+	track <- tracks[m,]#
+	title <- track[[3]]#
+	artist <- track[[2]]#
+	#récupérer la table de titles similaires au title m#
+		if (tracks[m,1] == "")#
+	{#
+		url.track <- paste("http://ws.audioscrobbler.com/2.0/?method=track.getinfo&track=", title, "&artist=", artist, "&autocorrect=1&api_key=35c710f49c77939574619a7de41f7267", sep ="")#
+		track <- xmlInternalTreeParse(file = url.track)#
+		r <- xmlRoot(track)#
+		track <- r[[1]]#
+		tracks[m,1] <- xmlValue(track[["mbid"]])#
+	}#
+}
+m
+track
+title
+url.track
+BEST_OF
+tracks
+m
+m<-3
+for (m in m:as.integer(individus.longueur-1))#
+{#
+	track <- tracks[m,]#
+	title <- track[[3]]#
+	artist <- track[[2]]#
+	#récupérer la table de titles similaires au title m#
+		if (tracks[m,1] == "")#
+	{#
+		url.track <- paste("http://ws.audioscrobbler.com/2.0/?method=track.getinfo&track=", title, "&artist=", artist, "&autocorrect=1&api_key=35c710f49c77939574619a7de41f7267", sep ="")#
+		track <- xmlInternalTreeParse(file = url.track)#
+		r <- xmlRoot(track)#
+		track <- r[[1]]#
+		tracks[m,1] <- xmlValue(track[["mbid"]])#
+	}#
+}
+tracks
+individus.longueur
+m<-10
+source("Dropbox/Reinaldo/R/LASTFM CaTh.R")
+m
+n
+m<-11
+source("Dropbox/Reinaldo/R/LASTFM CaTh.R")
+nn
+p
+s
+track.compare
+similar.match
+track.compare
+MatSimil
+read.csv("Downloads/elections-departementales-2015-candidatures-1er-tour.csv")
+read.csv("Downloads/elections-departementales-2015-candidatures-1er-tour.csv", sep=";")
+read.csv("Downloads/Dep_15_Candidatures_T1_c_09_03_2015.csv", sep=";")
+read.csv("Downloads/Dep_15_Candidatures_T1_c_09_03_2015.csv", sep=",")
+read.csv("Downloads/Dep_15_Candidatures_T1_c_09_03_2015.csv")
+read.table("Downloads/Dep_15_Candidatures_T1_c_09_03_2015.xlsx")
+read.csv("Downloads/Dep_15_Candidatures_T1_c_09_03_2015.csv")
+scan(file="http://elections.interieur.gouv.fr/departementales-2015/index.html")
+scan(file="http://elections.interieur.gouv.fr/departementales-2015/018/index.html")
+scan(file="http://elections.interieur.gouv.fr/departementales-2015/080/08001.html")
+library(XML)
+htmlParse("http://app.swarm.fm/#/releases/explore/myartists/trending/albums")
+library(XML)#
+#
+cla <- readHTMLTable("http://app.swarm.fm/#/releases/explore/myartists/trending/albums",#
+                     stringsAsFactors = FALSE)
+cla
+to <- htmlParse("http://app.swarm.fm/#/releases/explore/myartists/trending/albums")
+to
+do <- xpathSApply(to,//*[@id="newreleases"]/div[3]/div[1]/div[2]/a[2]/text(), xmlValue)
+do <- xpathSApply(to,"//*[@id="newreleases"]/div[3]/div[1]/div[2]/a[2]/text()", xmlValue)
+do <- xpathSApply(to,"//*[@id='newreleases']/div[3]/div[1]/div[2]/a[2]/text()", xmlValue)
+do
+ls()
+library(XML)#
+#
+to <- htmlParse("http://app.swarm.fm/#/releases/explore/myartists/trending/albums")#
+do <- xpathSApply(to,"//*[@id='newreleases']/div[3]/div[1]/div[2]/a[2]/text()", xmlValue)
+do
+library(XML)#
+library(relenium)#
+#
+##downloading website#
+website<- firefoxClass$new() #
+url <- "http://www.tennisabstract.com/cgi-bin/player.cgi?p=RogerFederer&f=ACareerqqG1ITop_5qqs00&view=h2h"#
+website$get(url) #
+doc <- htmlParse(website$getPageSource())
+find.packages('RSelenium')
+find.package('RSelenium')
+install.packages(igraph)
+install.packages("igraph")
+read.table("Adjacence.txt")
+go <- read.table("Adjacence.txt")
+library(igraph)
+g <- read.table("Adjacence.txt")
+compco <- decompose.graph(g, mode = c("weak"),#
+max.comps = NA, min.vertices = 3)
+g<-as.matrix(g)#
+g<-graph.edgelist(g, directed=TRUE)
+g
+g<-as.network(as.matrix(g))#
+g
+g <- read.table("Adjacence.txt")
+g<-as.network(as.matrix(g))#
+g
+source("LASTFM loved festivals.R")
+source("LASTFM loved2.R")#
+#
+Selection <- NULL#
+#
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Europe&festivalsonly=1&limit=600&api_key=35c710f49c77939574619a7de41f7267")#
+r <- xmlRoot(doc)#
+events <- r[[1]]#
+events.longueur <- xmlSize(events)#
+for (m in 1:as.integer(events.longueur))#
+{#
+	lineup <- events[[m]][["artists"]]#
+	for (p in 1:as.integer(xmlSize(lineup)))#
+	{#
+			event.artist <- xmlValue(lineup[[p]])#
+#
+			ID <- xmlValue(events[[m]][["id"]])#
+			title <- xmlValue(events[[m]][["title"]])#
+			city <- xmlValue(events[[m]][["venue"]][["location"]][["city"]])#
+			country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+			date <- xmlValue(events[[m]][["startDate"]])#
+			artists <- event.artist#
+			Test <- cbind(ID, title, city, country, date, artists)#
+			Selection <- rbind(Selection,Test)					#
+	}#
+#
+}#
+#
+Selection <- data.frame(Selection)#
+LOVE <- data.frame(LOVE)#
+artists <- unique(LOVE$artist)#
+#
+FESTOCHES <- merge(Selection, artists)#
+liste <- FESTOCHES$title#
+liste <- table(liste)#
+liste <- data.frame(liste)#
+liste <- subset(liste, Freq>10)#
+show(liste)
+header(FESTOCHES)
+head(FESTOCHES)
+artists
+dimnames(Selection)
+dimnames(LOVE)
+head(Selection)
+FESTOCHES <- merge(Selection, LOVE, by.x = c("artists"), by.y = c("artist"))
+FESTOCHES
+liste <- FESTOCHES$title#
+liste <- table(liste)#
+liste <- data.frame(liste)#
+liste <- subset(liste, Freq>10)#
+show(liste)
+head(FESTOCHES)
+subset(FESTOCHES, -c("mbid", "track"))
+subset(FESTOCHES, select = -c("mbid", "track"))
+subset(FESTOCHES, select = -c(mbid, track))
+FESTOCHES <- subset(FESTOCHES, select = -c(mbid, track))#
+FESTOCHES <- unique(FESTOCHES)
+liste <- FESTOCHES$title#
+liste <- table(liste)#
+liste <- data.frame(liste)#
+liste <- subset(liste, Freq>10)#
+show(liste)
+festivals <- merge(FESTOCHES, liste, by.x = c("title"), by.y = c("liste")) #
+#
+festivals <- unique(festivals)#
+show(festivals)
+liste
+subset(festivals, select=c(date, title))
+unique(subset(festivals, select=c(date, title)))
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=France&festivalsonly=1&limit=600&api_key=35c710f49c77939574619a7de41f7267")#
+r <- xmlRoot(doc)#
+events <- r[[1]]#
+events.longueur <- xmlSize(events)#
+for (m in 1:as.integer(events.longueur))#
+{#
+	lineup <- events[[m]][["artists"]]#
+	for (p in 1:as.integer(xmlSize(lineup)))#
+	{#
+			event.artist <- xmlValue(lineup[[p]])#
+#
+			ID <- xmlValue(events[[m]][["id"]])#
+			title <- xmlValue(events[[m]][["title"]])#
+			city <- xmlValue(events[[m]][["venue"]][["location"]][["city"]])#
+			country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+			date <- xmlValue(events[[m]][["startDate"]])#
+			artists <- event.artist#
+			Test <- cbind(ID, title, city, country, date, artists)#
+			Selection <- rbind(Selection,Test)					#
+	}#
+#
+}#
+#
+Selection <- data.frame(Selection)#
+LOVE <- data.frame(LOVE)#
+artist <- unique(LOVE$artist)#
+#
+FESTOCHES <- merge(Selection, LOVE, by.x = c("artists"), by.y = c("artist")) #
+FESTOCHES <- unique(subset(FESTOCHES, select = -c(mbid, track)))#
+#
+liste <- FESTOCHES$title#
+liste <- table(liste)#
+liste <- data.frame(liste)#
+liste <- subset(liste, Freq>10)#
+#
+festivals <- merge(FESTOCHES, liste, by.x = c("title"), by.y = c("liste")) #
+festivals <- unique(festivals)#
+#
+liste <- unique(subset(festivals, select=c(date, title)))
+liste
+source("LASTFM loved festivals.R")
+liste
+source("LASTFM loved festivals.R")
+FESTOCHES
+liste <- FESTOCHES$title#
+liste <- table(liste)#
+liste <- data.frame(liste)
+liste
+max(liste)
+max(liste$Freq)
+max(liste$Freq)*80%
+max(liste$Freq)*.8
+liste <- subset(liste, Freq>max(liste$Freq)*.8)
+cut <- max(liste$Freq)*.8
+liste <- subset(liste, Freq>cut)
+liste
+cut <- max(liste$Freq)*.5#
+liste <- subset(liste, Freq>cut)
+liste
+liste <- subset(liste, Freq>4)
+liste
+liste <- FESTOCHES$title#
+liste <- table(liste)#
+liste <- data.frame(liste)#
+cut <- max(liste$Freq)*.5#
+liste <- subset(liste, Freq>4)
+liste
+festivals <- merge(FESTOCHES, liste, by.x = c("title"), by.y = c("liste")) #
+festivals <- unique(festivals)
+festivals
+source("LASTFM loved festivals.R")
+festivals
+source("LASTFM loved festivals.R")
+source("LASTFM loved events.R")
+library(package='XML')#
+require(package='XML')
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=Reinaldodos&period=12month&limit=1000&api_key=35c710f49c77939574619a7de41f7267")
+r <- xmlRoot(doc)#
+tracks <- r[[1]]#
+tracks.longueur <- xmlSize(tracks)#
+#
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=Reinaldodos&limit=1500&api_key=35c710f49c77939574619a7de41f7267")#
+r <- xmlRoot(doc)#
+loved <- r[[1]]#
+loved.longueur <- xmlSize(loved)#
+#
+LOVE <- NULL#
+LIB <- NULL
+for (n in 1:as.integer(tracks.longueur))#
+{#
+	mbid <- xmlValue(tracks[[n]][["mbid"]])#
+	track <- xmlValue(tracks[[n]][["name"]])#
+	artist <- xmlValue(tracks[[n]][["artist"]][["name"]])#
+	toto <- cbind(mbid, artist, track)#
+	LIB <- rbind(LIB, toto)#
+}
+LIB
+Selection <- LIB
+BEST_OF <- Selection[,c(2,3)]#
+#
+write.table(Selection, "Selection.txt", quote=TRUE, row.names=FALSE, col.names=FALSE)#
+write.table(BEST_OF, "BEST OF.txt", quote=TRUE, row.names=FALSE, col.names=FALSE)
+BEST_OF
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Paris&limit=10000&api_key=35c710f49c77939574619a7de41f7267")#
+r <- xmlRoot(doc)#
+events <- r[[1]]#
+events.longueur <- xmlSize(events)#
+#
+Selection <- NULL#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+	if (cancelled != "1")#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			mbid <- xmlValue(events[[m]][["id"]])#
+			title <- xmlValue(events[[m]][["title"]])#
+			name <- xmlValue(events[[m]][["venue"]][["name"]])#
+			date <- xmlValue(events[[m]][["startDate"]])#
+			artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			Test <- cbind(mbid, title, name, date, artist)#
+			Selection <- rbind(Selection,Test)					#
+		}#
+	}#
+}#
+#
+Selections <- merge(BEST_OF, Selection)#
+Selections <- unique(subset(Selections, select = c(title, name, date, artist)))#
+#
+show(Selections)
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Paris&limit=10000&api_key=35c710f49c77939574619a7de41f7267")#
+r <- xmlRoot(doc)#
+events <- r[[1]]#
+events.longueur <- xmlSize(events)#
+#
+Selection <- NULL#
+#
+for (m in 1:as.integer(events.longueur))#
+{#
+	cancelled <- xmlValue(events[[m]][["cancelled"]])#
+' 	if (cancelled != "1")'#
+	{#
+		country <- xmlValue(events[[m]][["venue"]][["location"]][["country"]])#
+		if (country == "France")#
+		{#
+			mbid <- xmlValue(events[[m]][["id"]])#
+			title <- xmlValue(events[[m]][["title"]])#
+			name <- xmlValue(events[[m]][["venue"]][["name"]])#
+			date <- xmlValue(events[[m]][["startDate"]])#
+			artist <- xmlValue(events[[m]][["artists"]][["artist"]])#
+			Test <- cbind(mbid, title, name, date, artist)#
+			Selection <- rbind(Selection,Test)					#
+		}#
+	}#
+}#
+#
+Selections <- merge(BEST_OF, Selection)#
+Selections <- unique(subset(Selections, select = c(title, name, date, artist)))#
+#
+show(Selections)
+source("LASTFM loved events.R")
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Paris&limit=10000&api_key=35c710f49c77939574619a7de41f7267")
+BEST_OF
+artist <- BEST_OF$artist
+unique(artist)
+source("LASTFM loved festivals.R")
+require(XML)
+source("LASTFM loved festivals.R")
+library(package='XML')#
+require(package='XML')
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=Reinaldodos&period=12month&limit=1000&api_key=35c710f49c77939574619a7de41f7267")
+r <- xmlRoot(doc)#
+tracks <- r[[1]]#
+tracks.longueur <- xmlSize(tracks)
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=Reinaldodos&limit=1000&api_key=35c710f49c77939574619a7de41f7267")
+r <- xmlRoot(doc)#
+loved <- r[[1]]#
+loved.longueur <- xmlSize(loved)#
+#
+LOVE <- NULL#
+LIB <- NULL
+#première boucle#
+for (m in 1:as.integer(loved.longueur))#
+{#
+	mbid <- xmlValue(loved[[m]][["mbid"]])#
+	track <- xmlValue(loved[[m]][["name"]])#
+	artist <- xmlValue(loved[[m]][["artist"]][["name"]])#
+	toto <- cbind(mbid, artist, track)#
+	LOVE <- rbind(LOVE, toto)#
+}	#
+for (n in 1:as.integer(tracks.longueur))#
+{#
+	mbid <- xmlValue(tracks[[n]][["mbid"]])#
+	track <- xmlValue(tracks[[n]][["name"]])#
+	artist <- xmlValue(tracks[[n]][["artist"]][["name"]])#
+	toto <- cbind(mbid, artist, track)#
+	LIB <- rbind(LIB, toto)#
+}#
+#
+Selection <- merge(LOVE,LIB)#
+BEST_OF <- Selection[,c(2,3)]
+Selection
+BEST_OF
+write.table(Selection, "Selection.txt", quote=TRUE, row.names=FALSE, col.names=FALSE)#
+write.table(BEST_OF, "BEST OF.txt", quote=TRUE, row.names=FALSE, col.names=FALSE)
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Paris&limit=10000&api_key=35c710f49c77939574619a7de41f7267")
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Paris&limit=1000&api_key=35c710f49c77939574619a7de41f7267")
+doc <- xmlInternalTreeParse(file = "http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=Paris&limit=100&api_key=35c710f49c77939574619a7de41f7267")
+FINAL <- NULL#
+#
+for(p in 1:nrow(Selection))#
+{#
+	cho <-Selection[p,c(2:3)]#
+	show(cho)#
+	mbid <- as.character(cho$mbid)#
+	artist <- as.character(cho$artist)#
+	title <- as.character(cho$title)#
+	artist <- gsub("&", "and", artist)#
+	'on récupère les titres'#
+	file <- paste("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=",artist,"&autocorrect=1&api_key=35c710f49c77939574619a7de41f7267", sep="")#
+	doc <- NULL#
+	try(doc <- xmlInternalTreeParse(file))#
+#
+	if(is.null(doc))#
+	{#
+		next#
+	}#
+	r <- xmlRoot(doc)#
+	morceau <- r[[1]]#
+	tags <- morceau[["tags"]]#
+	nb.tags <- xmlSize(tags)#
+	if(nb.tags>0)#
+	{#
+		tag <- NULL#
+		tho <- NULL#
+		for (n in 1:nb.tags)#
+		{#
+			tag[n] <- 1#
+			tho[n] <- xmlValue(tags[[n]][["name"]])#
+		}#
+		tag <- data.frame(t(tag))#
+		colnames(tag) <- tho#
+		tho <- cbind(cho,tag)#
+		FINAL <- merge(FINAL, tho, all=TRUE)#
+'FAIRE UN UPDATE'		#
+	}#
+}#
+FINAL[is.na(FINAL)] <- 0#
+#
+name <- paste(FINAL$artist,FINAL$track, sep=" - ")#
+rownames(FINAL) <- name#
+FINAL <- subset(FINAL, select=-c(artist, track))
+FINAL
+colnames(FINAL)
+toto <- colnames(FINAL)
+toto[1]
+tata <- toto[1]
+subset(FINAL, tata==1)
+subset(FINAL)
+toto
+subset(FINAL, electronic==1)
+rownames(subset(FINAL, electronic==1))
+rownames(subset(FINAL, metal==1))
+rownames(subset(FINAL, rock==1))
+rownames(subset(FINAL, indie==1))
+rownames(subset(FINAL, folk==1))
+toto
+sum(FINAL)
+colSums(FINAL)
+subset(FINAL, colSums(FINAL)>1)
+colSums(FINAL)>1
+t(colSums(FINAL))
+colSums(FINAL)
+rownames(colSums(FINAL))
+colnames(colSums(FINAL))
+rownames(subset(FINAL, idm==1))

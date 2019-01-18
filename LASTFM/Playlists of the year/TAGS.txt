@@ -1,0 +1,15 @@
+metal;
+post-punk;
+hardcore;
+Hip-Hop;
+jazz;
+post-rock;
+country;
+folk;
+indie rock;
+indie pop;
+britpop;
+experimental;
+techno;
+electronic;
+rock;
