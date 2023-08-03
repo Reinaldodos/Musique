@@ -1,4 +1,4 @@
-pacman::p_load(tidyverse, data.table, rvest, rio)
+pacman::p_load(tidyverse, data.table, rvest, rio, magrittr)
 source("FONCTIONS.R")
 
 Temps = list(
@@ -8,6 +8,8 @@ Temps = list(
   Last_12months = "?time=3",
   All_time = "?time=4"
 )
+
+Chronologie = Temps %>% names() %>% as_factor()
 
 genres =
   "http://www.anydecentmusic.com" %>%
@@ -29,21 +31,20 @@ input$genre =
 
 output =
   input %>%
-  group_by(Temps) %>% nest() %>%
-  mutate(Selection = map(
-    .x = data,
-    .f = ~ group_by(.data = ., genre) %>%
-      filter(Score == max(Score))
-  )) %>%
-  mutate(Liste = map(
-    .x = Selection,
-    .f = ~ paste(.$Artist, .$Title, sep = " - ") %>% unique %>% sort
-  ))
+  group_by(Temps, genre) %>%
+  top_n(n = 1, wt = Score) %>%
+  ungroup() %>%
+  group_by(genre) %>%
+  slice(1:1) %>% ungroup()
+
+output$Temps %<>% factor(levels = Chronologie)
 
 saveRDS(object = output, file = "Selection")
 
-
 # Print -------------------------------------------------------------------
-"Selection" %>% read_rds %>% select(Temps, Liste) %>%  unnest() %>%
-  split(x = .$Liste, f = .$Temps)
-
+"Selection" %>% read_rds() %>%
+  group_nest(Temps, Artist, Title, Score) %>%
+  group_nest(Temps, Score) %>%
+  arrange(Temps, -Score) %>%
+  group_nest(Temps) %>%
+  jsonlite::write_json(path = "Selection.json")
