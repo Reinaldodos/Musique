@@ -1,5 +1,5 @@
 pacman::p_load(tidyverse, data.table, rvest, rio, magrittr)
-source("FONCTIONS.R")
+source("AnyDecentMusic/FONCTIONS.R")
 
 Temps = list(
   Recent = "",
@@ -39,12 +39,20 @@ output =
 
 output$Temps %<>% factor(levels = Chronologie)
 
-saveRDS(object = output, file = "Selection")
+saveRDS(object = output, file = "AnyDecentMusic/Selection.rds")
+
+output %>%
+  group_by(Temps,
+           Album = paste(Artist, Title, sep = " - "), Score) %>%
+  summarise(Genres = paste(genre, collapse = " / ")) %>%
+  arrange(Temps, -Score) %>%
+  view()
+
 
 # Print -------------------------------------------------------------------
-"Selection" %>% read_rds() %>%
+"AnyDecentMusic/Selection.rds" %>% read_rds() %>%
   group_nest(Temps, Artist, Title, Score) %>%
   group_nest(Temps, Score) %>%
   arrange(Temps, -Score) %>%
   group_nest(Temps) %>%
-  jsonlite::write_json(path = "Selection.json")
+  jsonlite::write_json(path = "AnyDecentMusic/Selection.json")

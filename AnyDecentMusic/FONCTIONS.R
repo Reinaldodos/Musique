@@ -47,7 +47,7 @@ FETCHEZ <- function(genre) {
 FETCH_TEMPS <- function(genres) {
   safe_FETCH = safely(FETCHEZ)
   input =
-    genres %>% set_names %>%
+    genres %>% purrr::set_names() %>%
     map(.f = safe_FETCH)
 
   if (input %>% map(.f = ~ .$error) %>% compact %>% length(.) == 0)
