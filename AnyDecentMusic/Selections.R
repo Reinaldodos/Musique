@@ -34,8 +34,11 @@ output =
   group_by(Temps, genre) %>%
   top_n(n = 1, wt = Score) %>%
   ungroup() %>%
-  group_by(genre) %>%
-  slice(1:1) %>% ungroup()
+  group_by(Artist, Title) %>%
+  slice(1:1) %>%
+  ungroup() %>%
+  semi_join(x = input,
+            by = join_by(Temps, Artist, Title))
 
 output$Temps %<>% factor(levels = Chronologie)
 
@@ -45,14 +48,16 @@ output %>%
   group_by(Temps,
            Album = paste(Artist, Title, sep = " - "), Score) %>%
   summarise(Genres = paste(genre, collapse = " / ")) %>%
-  arrange(Temps, -Score) %>%
+  filter(Temps!="All_time") %>%
+  arrange(-Score, Temps) %>%
   view()
 
 
 # Print -------------------------------------------------------------------
 "AnyDecentMusic/Selection.rds" %>% read_rds() %>%
+  filter(Temps!="All_time") %>%
   group_nest(Temps, Artist, Title, Score) %>%
   group_nest(Temps, Score) %>%
-  arrange(Temps, -Score) %>%
-  group_nest(Temps) %>%
+  group_nest(Score) %>%
+  arrange(-Score) %>%
   jsonlite::write_json(path = "AnyDecentMusic/Selection.json")
