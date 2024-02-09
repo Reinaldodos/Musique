@@ -9,16 +9,22 @@ Temps = list(
   All_time = "?time=4"
 )
 
-Chronologie = Temps %>% names() %>% as_factor()
+Chronologie =
+  Temps %>%
+  names() %>%
+  as_factor()
 
 genres =
   "http://www.anydecentmusic.com" %>%
   FETCHEZ_LES_GENRES()
 
-genres = Temps %>% map(.f = ~ str_c(genres, .))
+genres =
+  Temps %>%
+  map(.f = ~ str_c(genres, .))
 
 input =
-  genres %>% map(FETCH_TEMPS) %>%
+  genres %>%
+  map(FETCH_TEMPS) %>%
   bind_rows(.id = "Temps")
 
 input$genre =
@@ -26,15 +32,24 @@ input$genre =
                   pattern = ".aspx",
                   n = 2) %>% .[, 1] %>%
   str_remove_all(pattern = "http://www.anydecentmusic.com/genre/") %>%
-  str_replace_all(pattern = "/", replacement = "-") %>%
-  str_replace_all(pattern = "%20", replacement = " ")
+  str_replace_all(pattern = "/",
+                  replacement = "-") %>%
+  str_replace_all(pattern = "%20",
+                  replacement = " ")
+
+saveRDS(object = input,
+        file = "AnyDecentMusic/Selection.rds")
 
 output =
-  input %>%
-  group_by(Temps, genre) %>%
-  top_n(n = 1, wt = Score) %>%
+  "AnyDecentMusic/Selection.rds" %>%
+  read_rds() %>%
+  group_by(Temps,
+           genre) %>%
+  top_n(n = 1,
+        wt = Score) %>%
   ungroup() %>%
-  group_by(Artist, Title) %>%
+  group_by(Artist,
+           Title) %>%
   slice(1:1) %>%
   ungroup() %>%
   semi_join(x = input,
@@ -42,20 +57,22 @@ output =
 
 output$Temps %<>% factor(levels = Chronologie)
 
-saveRDS(object = output, file = "AnyDecentMusic/Selection.rds")
 
 output %>%
   group_by(Temps,
-           Album = paste(Artist, Title, sep = " - "), Score) %>%
-  summarise(Genres = paste(genre, collapse = " / ")) %>%
-  filter(Temps!="All_time") %>%
+           Album = paste(Artist, Title,
+                         sep = " - "),
+           Score) %>%
+  summarise(Genres = paste(genre,
+                           collapse = " / ")) %>%
+  filter(Temps != "All_time") %>%
   arrange(-Score, Temps) %>%
   view()
 
 
 # Print -------------------------------------------------------------------
-"AnyDecentMusic/Selection.rds" %>% read_rds() %>%
-  filter(Temps!="All_time") %>%
+output %>%
+  filter(Temps != "All_time") %>%
   group_nest(Temps, Artist, Title, Score) %>%
   group_nest(Temps, Score) %>%
   group_nest(Score) %>%
