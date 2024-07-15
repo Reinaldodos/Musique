@@ -40,9 +40,12 @@ input$genre =
 saveRDS(object = input,
         file = "AnyDecentMusic/Selection.rds")
 
-output =
+input =
   "AnyDecentMusic/Selection.rds" %>%
-  read_rds() %>%
+  read_rds()
+
+output =
+  input %>%
   group_by(Temps,
            genre) %>%
   top_n(n = 1,
@@ -56,7 +59,6 @@ output =
             by = join_by(Temps, Artist, Title))
 
 output$Temps %<>% factor(levels = Chronologie)
-
 
 output %>%
   group_by(Temps,
